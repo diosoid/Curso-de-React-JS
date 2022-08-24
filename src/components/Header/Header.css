@@ -1,0 +1,12 @@
+.headerContainer{ 
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+  
+}
+.holaManola{
+        display: flex;  
+        align-items: center;
+        justify-content: center;
+
+}

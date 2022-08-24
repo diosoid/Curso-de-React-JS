@@ -1,7 +1,9 @@
 
 import'./App.css'
 import Header from './components/Header/Header'
+import Saludo from './components/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
+
 
 
 //import { Navbar } from './components/NavBar'
@@ -12,7 +14,8 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 const App = () => {
   return (
     <div>   
-    <Header/> 
+    <Header/>
+    <Saludo/>
     
     </div>
   );

@@ -11,31 +11,35 @@ function BrandExample() {
     <>
       
      
-      <Navbar bg="dark" variant="dark">
-        <Container>
-          <Navbar.Brand  href="#home">
-            
+      <Navbar bg="dark" variant="dark" >
+        <Container className="justify-content-center" fill variant="tabs">
+          <Navbar.Brand    href="#home">
               <img
               alt=""
               src={logo}
               width="80"
               height="60"
               className="d-inline-block align-center"
-            />{''}
-            DinaSound
+              
+            />
+            {'DinaSound'}
             
+                    
           </Navbar.Brand>
+          
+          
         </Container>
       </Navbar>
 
 
-      <Navbar bg="success" variant="dark">
-        <Container>
-          <Navbar.Brand href="#home"><ShoppingCartIcon/></Navbar.Brand>
-          <Nav className="me-auto">
-            <Nav.Link href="#home">Nuestra Historia.</Nav.Link>
-            <Nav.Link href="#features">Veni a visitarnos!</Nav.Link>
-            <Nav.Link href="#pricing">Contacto.</Nav.Link>
+      <Navbar bg="success" variant="dark"  >
+        <Container className="justify-content-center" fill variant="tabs" defaultActiveKey="/home">
+          <Navbar.Brand href="#home" ><ShoppingCartIcon/></Navbar.Brand>
+          <Nav  >
+            <Nav.Link href="#home">Catalogo</Nav.Link>
+            <Nav.Link href="#features">Visitenos</Nav.Link>
+            <Nav.Link href="#pricing">Contacto</Nav.Link>
+            
           </Nav>
         </Container>
       </Navbar>
