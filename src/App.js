@@ -1,7 +1,7 @@
 
 import'./App.css'
 import Header from './components/Header/Header'
-import Saludo from './components/ItemListContainer'
+import ItemListContainer from './components/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
 
 
@@ -15,7 +15,7 @@ const App = () => {
   return (
     <div>   
     <Header/>
-    <Saludo/>
+    <ItemListContainer usuario1 = "Cosme Fulanito" correoElectronico= "callefalsa123@gmail.com"/>
     
     </div>
   );

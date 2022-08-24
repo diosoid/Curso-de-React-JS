@@ -1,6 +1,6 @@
 
 
-const ItemListContainer = ( { usuario1 = "Cosme Fulanito", correoElectronico= "callefalsa123@gmail.com"} ) => {
+const ItemListContainer = ( { usuario1 , correoElectronico} ) => {
     return (
       <div >
         <h2>Bienvenido {usuario1}</h2>
