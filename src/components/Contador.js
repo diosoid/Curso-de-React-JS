@@ -1,5 +1,5 @@
 
-import { useState } from "react"
+import { useState, useEffect } from "react"
 
 
 
@@ -25,6 +25,8 @@ const Contador = (  ) => {
         setSaludar(!saludar)
     }
 
+    useEffect(() => {console.log("Contador montado")}, [])
+
 
 
     return (
@@ -36,8 +38,14 @@ const Contador = (  ) => {
         <button onClick={handleRestar} className="btn btn-outline-primary">-</button>
         <span className="mx-2"> {counter} </span>
         <button onClick={handleSumar}className="btn btn-primary">+</button>
+       
+        <p>Ulttimo click: {new Date ().toLocaleString()}</p>
         <hr/>
-        <button onClick={handleSaludar} className="btn btn-success"> {saludar ? "Hola!" : "Chau!" }</button>
+        <button
+         onClick={handleSaludar}
+         className={saludar ? "btn btn-success" : "btn btn-info" }>
+         {saludar ? "Hola!" : "Chau!" }
+         </button>
 
       </div>
         

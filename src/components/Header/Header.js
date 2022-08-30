@@ -12,8 +12,8 @@ function BrandExample() {
       
      
       <Navbar bg="dark" variant="dark" >
-        <Container className="justify-content-center" fill variant="tabs">
-          <Navbar.Brand    href="#home">
+        <Container className="justify-content-center" >
+          <Navbar.Brand >
               <img
               alt=""
               src={logo}
@@ -33,12 +33,12 @@ function BrandExample() {
 
 
       <Navbar bg="success" variant="dark"  >
-        <Container className="justify-content-center" fill variant="tabs" defaultActiveKey="/home">
-          <Navbar.Brand href="#home" ><CartWidjet/></Navbar.Brand>
+        <Container className="justify-content-center"  >
+          <Navbar.Brand ><CartWidjet/></Navbar.Brand>
           <Nav  >
-            <Nav.Link href="#home">Catalogo</Nav.Link>
-            <Nav.Link href="#features">Visitenos</Nav.Link>
-            <Nav.Link href="#pricing">Contacto</Nav.Link>
+            <Nav.Link >Catalogo</Nav.Link>
+            <Nav.Link >Visitenos</Nav.Link>
+            <Nav.Link >Contacto</Nav.Link>
             
           </Nav>
         </Container>
