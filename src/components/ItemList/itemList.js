@@ -1,4 +1,6 @@
-import Item from "../Item.js/Item";
+
+import './ItemList.css'
+import Item from "../Item/Item";
 
 
 
@@ -6,11 +8,7 @@ import Item from "../Item.js/Item";
 const ItemList = ( { productos = [] } ) => {
  
     return (
-      <div className="container my-5">
-        <h2>Productos</h2>
-        <hr/>
-
-
+      <div className="container my-5" id="contenedor-productos">       
       { productos.map((prod)=>{
         return <Item producto={prod} key={prod.id} />
       })}      
