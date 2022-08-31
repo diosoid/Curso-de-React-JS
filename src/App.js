@@ -3,7 +3,7 @@ import'./App.css'
 import Header from './components/Header/Header'
 import ItemListContainer from './components/ItemListContainer/ItemListContainer'
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Contador from './components/Contador';
+
 
 
 
@@ -17,7 +17,7 @@ const App = () => {
     <div>   
     <Header/>
     <ItemListContainer usuario1 = "Cosme Fulanito" correoElectronico= "callefalsa123@gmail.com"/>
-    <Contador/>
+    
     
     </div>
   );

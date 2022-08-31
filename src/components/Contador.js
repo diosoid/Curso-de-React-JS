@@ -32,20 +32,20 @@ const Contador = (  ) => {
     return (
       <div className="container my-5">
 
-        <h2>Contador</h2>
+        {/* <h2>Contador</h2> */}
         <hr/>
 
         <button onClick={handleRestar} className="btn btn-outline-primary">-</button>
         <span className="mx-2"> {counter} </span>
         <button onClick={handleSumar}className="btn btn-primary">+</button>
        
-        <p>Ulttimo click: {new Date ().toLocaleString()}</p>
+        {/* <p>Ulttimo click: {new Date ().toLocaleString()}</p> */}
         <hr/>
-        <button
+        {/* <button
          onClick={handleSaludar}
          className={saludar ? "btn btn-success" : "btn btn-info" }>
          {saludar ? "Hola!" : "Chau!" }
-         </button>
+         </button> */}
 
       </div>
         
