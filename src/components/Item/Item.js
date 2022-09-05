@@ -1,8 +1,8 @@
-
 import './Item.css'
 import Contador from "../Contador"
-import Button from 'react-bootstrap/Button';
+
 import Card from 'react-bootstrap/Card';
+import { Link } from 'react-router-dom';
 
 
 
@@ -25,7 +25,7 @@ const Item = ({producto}) => {
       <small>Stock: {producto.cantidad}</small>
       <p>{producto.descripcion}</p>
       <Contador/>
-      <Button variant="primary">Agregar al carrito</Button>
+      <Link to= {`/item/${producto.id}`} className="btn btn-primary my-2" variant="primary">Ver Mas</Link>
       </Card.Body>
       </Card>
            
@@ -37,19 +37,5 @@ export default Item
 
 
 
-/*  function BasicExample() {
-  return (
-    <Card style={{ width: '18rem' }}>
-      <Card.Img variant="top" src={producto.img}  alt={producto.nombre} />
-      <Card.Body>
-        <Card.Title>{producto.nombre}</Card.Title>
-        <Card.Text>
-          Some quick example text to build on the card title and make up the
-          bulk of the card's content.
-        </Card.Text>
-        <Button variant="primary">Go somewhere</Button>
-      </Card.Body>
-    </Card>
-  );
-}  */
+
 

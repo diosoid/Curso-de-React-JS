@@ -10,3 +10,15 @@
         justify-content: center;
 
 }
+.NavLink {
+
+        color: aliceblue;
+
+
+}
+
+.header-navlink {
+        font-size: 18px;
+        font-weight: 700;
+        color:white;
+}

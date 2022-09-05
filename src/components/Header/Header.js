@@ -4,6 +4,9 @@ import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/dinoicon.png'
 import Nav from 'react-bootstrap/Nav';
 import CartWidjet from '../CartWidjet';
+import {Link} from 'react-router-dom'
+
+
 
 
 function BrandExample() {
@@ -35,12 +38,27 @@ function BrandExample() {
       <Navbar bg="success" variant="dark"  >
         <Container className="justify-content-center"  >
           <Navbar.Brand ><CartWidjet/></Navbar.Brand>
+          <Nav  >       
+            <Link to='/'>Catalogo</Link>
+            <Link to='/Nosotros'>Nosotros</Link>
+            <Link to='/Contacto'>Contacto</Link>         
+          </Nav>      
+          
+
+
+
+        </Container>
+      </Navbar>
+      <Navbar bg="success" variant="dark"  >
+        <Container className="justify-content-center" >
+             
           <Nav  >
-            <Nav.Link >Catalogo</Nav.Link>
-            <Nav.Link >Visitenos</Nav.Link>
-            <Nav.Link >Contacto</Nav.Link>
-            
+               
+            <Link to='/productos/parlantes'  >Parlantes</Link>
+            <Link to='/productos/potencias' >Potencias</Link>
+            <Link to='/productos/estereo' >Estereo</Link>         
           </Nav>
+          
         </Container>
       </Navbar>
 
