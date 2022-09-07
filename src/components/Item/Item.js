@@ -1,5 +1,4 @@
 import './Item.css'
-import Contador from "../Contador"
 
 import Card from 'react-bootstrap/Card';
 import { Link } from 'react-router-dom';
@@ -11,21 +10,24 @@ const Item = ({producto}) => {
 
            
       
-      <Card style={{ width: '18rem' }}  id="producto">
+      <Card style={{ width: '18rem' }}  className='producto '>
       <Card.Img variant="top" src={producto.img}  alt={producto.nombre} />
       <Card.Body >
-      <Card.Title >{producto.nombre}: {producto.marca}</Card.Title>
-      <Card.Text>
+      <Card.Title className='Card-title'>
+      {producto.nombre}: {producto.marca}
+      </Card.Title>
+      <Card.Text className='Card-title'>
       Modelo: {producto.modelo}
-      </Card.Text>
-      <Card.Text>
-      {producto.atributos}
-      </Card.Text>
-      <Card.Title><p>Precio: ${producto.valor}</p></Card.Title>               
+      </Card.Text >
+      
+      <Card.Title className='Card-title'>
+      <p>{producto.atributos}</p>
+      <p>Precio: ${producto.valor}</p>
       <small>Stock: {producto.cantidad}</small>
       <p>{producto.descripcion}</p>
-      <Contador/>
-      <Link to= {`/item/${producto.id}`} className="btn btn-primary my-2" variant="primary">Ver Mas</Link>
+      <Link to= {`/item/${producto.id}`} className="btn btn-primary my-2 button" variant="primary">Ver Mas</Link>
+      </Card.Title>               
+      
       </Card.Body>
       </Card>
            

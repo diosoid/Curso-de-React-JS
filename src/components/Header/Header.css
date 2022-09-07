@@ -1,24 +1,9 @@
-.headerContainer{ 
-        display: flex;  
-        align-items: center;
-        justify-content: center;
-  
-}
-.holaManola{
-        display: flex;  
-        align-items: center;
-        justify-content: center;
 
-}
-.NavLink {
+.nav-link{
+        text-decoration: none;
+    }
 
-        color: aliceblue;
-
-
-}
-
-.header-navlink {
-        font-size: 18px;
-        font-weight: 700;
-        color:white;
-}
+.cat-link{
+        text-decoration: solid;
+        width: 80px;
+    }

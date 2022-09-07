@@ -38,10 +38,10 @@ function BrandExample() {
       <Navbar bg="success" variant="dark"  >
         <Container className="justify-content-center"  >
           <Navbar.Brand ><CartWidjet/></Navbar.Brand>
-          <Nav  >       
-            <Link to='/'>Catalogo</Link>
-            <Link to='/Nosotros'>Nosotros</Link>
-            <Link to='/Contacto'>Contacto</Link>         
+          <Nav variant="light" >       
+            <Link className='nav-link' to='/'>Catalogo</Link>
+            <Link className='nav-link' to='/Nosotros'>Nosotros</Link>
+            <Link className='nav-link' to='/Contacto'>Contacto</Link>         
           </Nav>      
           
 
@@ -53,10 +53,10 @@ function BrandExample() {
         <Container className="justify-content-center" >
              
           <Nav  >
-               
-            <Link to='/productos/parlantes'  >Parlantes</Link>
-            <Link to='/productos/potencias' >Potencias</Link>
-            <Link to='/productos/estereo' >Estereo</Link>         
+            <Nav.Link className='cat-link'>Categorias:</Nav.Link>   
+            <Link className='nav-link'   to='/productos/parlantes'  >Parlantes</Link>
+            <Link className='nav-link' to='/productos/potencias' >Potencias</Link>
+            <Link className='nav-link' to='/productos/estereo' >Estereo</Link>         
           </Nav>
           
         </Container>
