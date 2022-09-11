@@ -1,10 +1,23 @@
+
+
+
+
 const Nosotros = () => {
+
+    const handleClick = () => {
+
+        console.log("Click!")
+    }
+    
+    
+
+    
     return (
-        <div>
 
-            <h1> Nosotros</h1>
+        <div className="conainer my-5">
+
+            <h1 onClick = {handleClick}> Nosotros</h1>
             <hr></hr>
-
 
         </div>
     )

@@ -12,8 +12,7 @@ import {Link} from 'react-router-dom'
 function BrandExample() {
   return (
     <>
-      
-     
+          
       <Navbar bg="dark" variant="dark" >
         <Container className="justify-content-center" >
           <Navbar.Brand >
@@ -29,24 +28,21 @@ function BrandExample() {
             
                     
           </Navbar.Brand>
-          
-          
+                   
         </Container>
       </Navbar>
 
-
       <Navbar bg="success" variant="dark"  >
         <Container className="justify-content-center"  >
+
           <Navbar.Brand ><CartWidjet/></Navbar.Brand>
+
           <Nav variant="light" >       
             <Link className='nav-link' to='/'>Catalogo</Link>
             <Link className='nav-link' to='/Nosotros'>Nosotros</Link>
             <Link className='nav-link' to='/Contacto'>Contacto</Link>         
           </Nav>      
           
-
-
-
         </Container>
       </Navbar>
       <Navbar bg="success" variant="dark"  >
