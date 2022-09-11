@@ -33,7 +33,7 @@ const ItemDetail = ({item}) => {
     }
     
     return (
-    <Container className='container'>
+    <Container className='container my-5'>
     <Card style={{ width: '18rem' }}  className="producto mx-auto">
       <Card.Img variant="top" src={item.img}  alt={item.nombre} />
       <Card.Body >
