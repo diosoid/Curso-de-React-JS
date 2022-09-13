@@ -8,8 +8,7 @@ import { Link } from 'react-router-dom';
 const Item = ({producto}) => {
     return(
 
-           
-      
+               
       <Card style={{ width: '18rem' }}  className='producto '>
       <Card.Img variant="top" src={producto.img}  alt={producto.nombre} />
       <Card.Body >

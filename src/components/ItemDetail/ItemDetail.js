@@ -4,31 +4,39 @@ import { Link } from 'react-router-dom';
 import './ItemDetail.css'
 import { Container } from "@mui/system";
 import Contador from '../Contador/Contador';
-import { useState,  } from "react"
+import {  useContext, useState,  } from "react"
 import Select from '../Select/Select';
+import { CartContext } from '../Context/CartContext';
+
 
 
 
 
 const ItemDetail = ({item}) => {
 
+    const { cart, addToCart, isInCart } = useContext(CartContext)
+    
     const [cantidad, setCantidad] = useState(1)
     const [color, setColor] =  useState(item.options[0].value)
-
 
     const handleAgregar = () => {
         const itemToCart = {
             id: item.id,
-            precio: item.precio,
+            precio: item.valor,
             nombre: item.nombre,
+            modelo: item.modelo,
             color,
             cantidad
         }
-        console.log({
+        
+
+        addToCart(itemToCart)
+
+        /* console.log({
             ...item,
             cantidad
         })
-        console.log(itemToCart)
+        console.log(itemToCart) */
 
     }
     
@@ -53,14 +61,20 @@ const ItemDetail = ({item}) => {
       <p>{item.descripcion}</p>
 
       <Select options={item.options} onSelect={setColor}  />
-      <Contador
-      max={item.cantidad}
-      counter={cantidad}
-      setCounter={setCantidad}
-      handleAgregar={handleAgregar}
-      />
 
-      <Link to= {`/item/${item.id}`} className="btn btn-primary my-2" variant="primary">Agregar al carrito.</Link>
+      {
+        isInCart(item.id)
+        ?<Link to="/Cart" className='btn btn-success my-2'  >Finalizar compra.</Link>   
+        :<Contador
+        max={item.cantidad}
+        counter={cantidad}
+        setCounter={setCantidad}
+        handleAgregar={handleAgregar}
+        />
+        
+      }
+
+      {/* <Link to= {`/item/${item.id}`} className="btn btn-primary my-2" variant="primary">Agregar al carrito.</Link> */}
       </Card.Title> 
       </Card.Body>
     </Card>

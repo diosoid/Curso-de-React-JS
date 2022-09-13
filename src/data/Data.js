@@ -2,7 +2,8 @@ export const stock = [
     {
         nombre: "Estéreo para auto",
         modelo: "MVH S215BT",
-        valor: 19000, atributos: "Con USB y Bluetooth",
+        valor: 19000,
+        atributos: "Con USB y Bluetooth",
         marca: "Pioneer",
         cantidad: 5,
         id: 1,
@@ -85,7 +86,7 @@ export const stock = [
     {
         nombre: "Parlantes 6x9",
         modelo: "Xs-fb6930",
-        valor: 24.990,
+        valor: 24990,
         atributos: "3 Vias 450 Watt 4 Ohms",
         marca: "Sony",
         cantidad: 5,
