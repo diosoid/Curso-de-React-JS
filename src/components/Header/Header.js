@@ -3,8 +3,9 @@ import Container from 'react-bootstrap/Container';
 import Navbar from 'react-bootstrap/Navbar';
 import logo from '../../assets/dinoicon.png'
 import Nav from 'react-bootstrap/Nav';
-import CartWidjet from '../CartWidjet';
+
 import {Link} from 'react-router-dom'
+import CartWidjet from '../CartWidjet/CartWidjet';
 
 
 
@@ -35,7 +36,7 @@ function BrandExample() {
       <Navbar bg="success" variant="dark"  >
         <Container className="justify-content-center"  >
 
-          <Navbar.Brand ><CartWidjet/></Navbar.Brand>
+          <Navbar.Brand > <CartWidjet/>    </Navbar.Brand>
 
           <Nav variant="light" >       
             <Link className='nav-link' to='/'>Catalogo</Link>

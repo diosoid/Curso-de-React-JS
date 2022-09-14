@@ -1,11 +1,14 @@
-import { useContext } from "react"
-import { CartContext } from "../Context/CartContext"
-
+import {  useCartContext } from "../Context/CartContext"
+import { BsFillTrashFill } from "react-icons/bs";
+import { useDarkMode } from "../Context/DarkModeContext";
 
 
 const Cart = ( ) => {
 
-    const {cart} = useContext(CartContext)
+    const {cart, totalCarrito, vaciarCarrito, eliminarItem} = useCartContext()
+    const {darkMode} = useDarkMode()
+
+    console.log(darkMode)
 
     return (
 
@@ -22,10 +25,15 @@ const Cart = ( ) => {
                     
                     <p>cantidad: {item.cantidad}</p>
                     <small>Color: {item.color}</small>
+                    <button onClick={() => eliminarItem(item.id)} className="btn btn-danger"><BsFillTrashFill/> </button>
 
                 </div>
 
             ))}
+
+            <h4>Total: ${totalCarrito()}</h4>
+            <button onClick={vaciarCarrito}  className="btn btn-danger">Vaciar Carrito.</button>
+
 
         </div>
 

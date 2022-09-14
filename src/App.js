@@ -7,34 +7,22 @@ import {BrowserRouter, Routes, Route, Navigate} from 'react-router-dom'
 import Contacto from './components/Contacto/Contacto';
 import Nosotros from './components/Nosotros/Nosotros';
 import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailContainer';
-import { CartContext } from './components/Context/CartContext';
-import { useState } from 'react';
+import {  CartProvider } from './components/Context/CartContext';
+
 import Cart from './components/Cart/Cart';
+import {  DarkModeProvider } from './components/Context/DarkModeContext';
 
 
 
 const App = () => {
 
-  const [cart, setCart] = useState([])
-
-  const addToCart = (item) => {
-    //const newCart = cart.slice()
-    //newCart.push(itemToCart)
-    setCart([...cart, item])
-
-  }
-
-  const isInCart = (id) => {
-    return cart.some((item) => item.id === id)
-  }
+  
 
   return (
 
-    <CartContext.Provider value={{
-      cart,
-      addToCart,
-      isInCart
-    }} >
+    <CartProvider  >
+
+      <DarkModeProvider>
 
 
       <BrowserRouter>
@@ -59,8 +47,10 @@ const App = () => {
       </BrowserRouter>
 
     
+      </DarkModeProvider>
+      
 
-    </CartContext.Provider>
+    </CartProvider>
 
   );
 }
