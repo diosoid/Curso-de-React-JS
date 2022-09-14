@@ -22,7 +22,7 @@ const App = () => {
 
     <CartProvider  >
 
-      <DarkModeProvider>
+      
 
 
       <BrowserRouter>
@@ -47,7 +47,7 @@ const App = () => {
       </BrowserRouter>
 
     
-      </DarkModeProvider>
+      
       
 
     </CartProvider>
