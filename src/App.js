@@ -10,7 +10,7 @@ import ItemDetailContainer from './components/ItemDetailContainer/ItemDetailCont
 import {  CartProvider } from './components/Context/CartContext';
 
 import Cart from './components/Cart/Cart';
-import {  DarkModeProvider } from './components/Context/DarkModeContext';
+/* import {  DarkModeProvider } from './components/Context/DarkModeContext'; */
 
 
 

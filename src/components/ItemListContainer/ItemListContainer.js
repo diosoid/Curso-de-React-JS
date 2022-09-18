@@ -1,7 +1,9 @@
 import { useEffect, useState } from "react"
-import { pedirDatos } from "../../helpers/pedirDatos"  
+/* import { pedirDatos } from "../../helpers/pedirDatos"  */ 
 import ItemList from "../ItemList/itemList"
 import { useParams } from "react-router-dom"
+import { collection,  getDocs, query, where } from "firebase/firestore"
+import { db } from "../../FireBase/config"
  
    
    
@@ -13,12 +15,37 @@ import { useParams } from "react-router-dom"
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
-    console.log(categoryId)
+    
 
     useEffect(() => {
         setLoading(true)
 
-        pedirDatos()
+        const productosRef = collection(db, 'productos')
+        const q = categoryId 
+                      ?query(productosRef, where('category', '==', categoryId) )
+                      : productosRef
+      
+
+          getDocs(q)
+          .then((resp) =>{
+            const productosDB = resp.docs.map((doc)=> ({id: doc.id, ...doc.data()}))
+            console.log(productosDB)
+            setProductos(productosDB)
+          })
+          .finally(()=>{
+            setLoading(false)
+  
+          })
+
+
+        
+
+
+      }, [categoryId])
+
+
+
+       /*  pedirDatos()
             .then( (res) => {
                 if (!categoryId) {
                     setProductos(res)
@@ -32,7 +59,7 @@ import { useParams } from "react-router-dom"
             .finally(() => {
                 setLoading(false)
             })
-    }, [categoryId])
+    }, [categoryId]) */
 
       return (
         <div >
@@ -43,10 +70,6 @@ import { useParams } from "react-router-dom"
             : <ItemList productos={productos}/>
           }
 
-          
-          {/* <h2>Bienvenido {usuario1}</h2>
-           <hr/>
-          <p>Su correo {correoElectronico} se ha registrado con éxito.</p> */}
 
         </div>
 

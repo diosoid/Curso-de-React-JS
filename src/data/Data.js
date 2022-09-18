@@ -172,7 +172,8 @@ export const stock = [
         valor: 71388,
         atributos: "40w X 4 + 1 Canal 300w Rms",
         marca: "Alpine",
-        cantidad: 5, id: 9,
+        cantidad: 5,
+        id: 9,
         img: "/assets/stock-img/potenciaAlpine.jpg",
         category: "potencias",
         options: [

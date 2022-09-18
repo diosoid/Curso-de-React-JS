@@ -14,7 +14,7 @@ import { CartContext } from '../Context/CartContext';
 
 const ItemDetail = ({item}) => {
 
-    const { cart, addToCart, isInCart } = useContext(CartContext)
+    const { addToCart, isInCart } = useContext(CartContext)
     
     const [cantidad, setCantidad] = useState(1)
     const [color, setColor] =  useState(item.options[0].value)
