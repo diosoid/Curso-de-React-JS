@@ -4,6 +4,7 @@ import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import {doc, getDoc } from "firebase/firestore"
 import { db } from "../../FireBase/config"
+import Loader from "../Loader/Loader"
 
 const ItemDetailContainer = () => {
 
@@ -20,13 +21,14 @@ const ItemDetailContainer = () => {
         const docRef = doc(db, 'productos', itemId)
 
         getDoc(docRef)
-        .then((doc) =>{
-            setItem({id: doc.id, ...doc.data()})
+            .then((doc) => {
+                setItem({id: doc.id, ...doc.data()})
+        })
         .finally(() => {
             setLoading(false)
         })
                 
-        }, [])
+        }, [itemId])
 
 
         /* pedirDatos()
@@ -39,13 +41,13 @@ const ItemDetailContainer = () => {
             }) */
         // setear el estado con un único producto
 
-    }, [itemId])
+    
 
     return (
         <div>
             {
                 loading
-                ? <h2>Loading...</h2>
+                ? <Loader/>
                 : <ItemDetail item={item} />
             }
             

@@ -1,3 +1,4 @@
+import './Contador.css'
 
 const Contador = ( {max, counter, setCounter, handleAgregar} ) => {
 
@@ -26,17 +27,25 @@ const Contador = ( {max, counter, setCounter, handleAgregar} ) => {
         
         <hr/>
 
-        <button onClick={handleRestar} className="btn btn-outline-primary">
+        <button onClick={handleRestar}
+        disabled={counter === 0 ? true : false}
+        className={counter === 1 ? "btn btn-outline-danger" : "btn btn-outline-primary"}>
+        
         -
         </button>
         <span className="mx-2"> {counter} </span>
-        <button onClick={handleSumar}className="btn btn-primary">
+        <button onClick={handleSumar}
+        disabled={counter === max ? true : false}
+        className={counter === max ? "btn btn-outline-danger" : "btn btn-outline-primary"}>
         +
         </button>
 
         <br/>
 
-        <button  onClick={handleAgregar}   className="btn btn-success my-2">
+        <button  onClick={handleAgregar}
+        className="btn btn-success my-2"
+        disabled={counter === 0 ? true : false}
+        >
             Agregar al carrito
         </button>
               

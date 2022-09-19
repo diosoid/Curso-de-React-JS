@@ -1,18 +1,30 @@
 import {  useCartContext } from "../Context/CartContext"
 import { BsFillTrashFill } from "react-icons/bs";
-import { useDarkMode } from "../Context/DarkModeContext";
+import { Link } from "react-router-dom";
+
+/* import { useDarkMode } from "../Context/DarkModeContext"; */
 
 
 const Cart = ( ) => {
 
     const {cart, totalCarrito, vaciarCarrito, eliminarItem} = useCartContext()
-    const {darkMode} = useDarkMode()
 
-    console.log(darkMode)
+    if ( cart.length === 0 ) {
+        return (
+            <div className="container my-5">
+                <h2> Tu carrito esta vacio.</h2>
+                <Link to="/" className="btn btn-primary"   >Ir al catalogo.</Link>
+            </div>
+        )
+    }
+
+    /* const {darkMode} = useDarkMode()
+    console.log(darkMode) */
 
     return (
 
         <div className="container my-5">
+            
             <h2>Carrito</h2>
                 <hr/>
 
@@ -23,9 +35,10 @@ const Cart = ( ) => {
                     <p>Precio: {item.valor}</p>
                     <p>Modelo: {item.modelo}</p>
                     
-                    <p>cantidad: {item.cantidad}</p>
+                    <p>Cantidad: {item.cantidad}</p>
                     <small>Color: {item.color}</small>
-                    <button onClick={() => eliminarItem(item.id)} className="btn btn-danger"><BsFillTrashFill/> </button>
+
+                    <button onClick={() => eliminarItem(item.id)} className=" my-2 btn btn-danger "><BsFillTrashFill/> </button>
 
                 </div>
 
@@ -33,7 +46,6 @@ const Cart = ( ) => {
 
             <h4>Total: ${totalCarrito()}</h4>
             <button onClick={vaciarCarrito}  className="btn btn-danger">Vaciar Carrito.</button>
-
 
         </div>
 

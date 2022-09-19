@@ -4,10 +4,9 @@ import ItemList from "../ItemList/itemList"
 import { useParams } from "react-router-dom"
 import { collection,  getDocs, query, where } from "firebase/firestore"
 import { db } from "../../FireBase/config"
+import Loader from "../Loader/Loader"
  
-   
-   
-   
+  
    const ItemListContainer = () => {
 
 
@@ -37,13 +36,7 @@ import { db } from "../../FireBase/config"
   
           })
 
-
-        
-
-
       }, [categoryId])
-
-
 
        /*  pedirDatos()
             .then( (res) => {
@@ -66,7 +59,7 @@ import { db } from "../../FireBase/config"
 
           {
             loading            
-            ? <h2>Cargando.</h2>
+            ?  <Loader/>
             : <ItemList productos={productos}/>
           }
 

@@ -4,7 +4,7 @@ import { Link } from 'react-router-dom';
 import './ItemDetail.css'
 import { Container } from "@mui/system";
 import Contador from '../Contador/Contador';
-import {  useContext, useState,  } from "react"
+import {  useContext, useState  } from "react"
 import Select from '../Select/Select';
 import { CartContext } from '../Context/CartContext';
 

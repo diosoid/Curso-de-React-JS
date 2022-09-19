@@ -1,21 +1,25 @@
-import {  createContext, useContext, useState } from "react";
+import {  createContext, useContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2'
 
 export const CartContext = createContext()
 
+ const init = JSON.parse(localStorage.getItem('carrito')) || []
+
 export const CartProvider = ({children}) => {
 
-    const [cart, setCart] = useState([])
+    const [cart, setCart] = useState(init)
 
     const addToCart = (item) => {
-    //const newCart = cart.slice()
-    //newCart.push(itemToCart)
-    setCart([...cart, item])
+        //const newCart = cart.slice()
+        //newCart.push(itemToCart)
+        setCart([...cart, item])
+        
 
     }
 
     const eliminarItem = (id) => {
         setCart(cart.filter((item) => item.id !== id ))
+        
 
     }
 
@@ -43,11 +47,15 @@ export const CartProvider = ({children}) => {
             confirmButtonText: 'Si!'
           }).then((result) => {
             if (result.isConfirmed) {         
-                setCart([])           
+                setCart([])
+                        
             }
           })     
     }
 
+        useEffect(() => {
+            localStorage.setItem('carrito', JSON.stringify(cart))
+        }, [cart])
 
 
 
