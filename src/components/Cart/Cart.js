@@ -38,7 +38,7 @@ const Cart = ( ) => {
                     <p>Cantidad: {item.cantidad}</p>
                     <small>Color: {item.color}</small>
 
-                    <button onClick={() => eliminarItem(item.id)} className=" my-2 btn btn-danger "><BsFillTrashFill/> </button>
+                    <button onClick={() => eliminarItem(item.id)} className=" mx-2 btn btn-danger "><BsFillTrashFill/> </button>
 
                 </div>
 
