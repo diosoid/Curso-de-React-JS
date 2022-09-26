@@ -6,11 +6,19 @@ import Nav from 'react-bootstrap/Nav';
 
 import {Link} from 'react-router-dom'
 import CartWidjet from '../CartWidjet/CartWidjet';
+import { useLoginContext } from '../Context/LoginContext';
 
 
 
 
 function BrandExample() {
+
+
+  const {user, logout } = useLoginContext()
+
+
+
+
   return (
     <>
           
@@ -22,10 +30,10 @@ function BrandExample() {
               src={logo}
               width="80"
               height="60"
-              className="d-inline-block align-center"
-              
-            />
-            {'DinaSound'}
+              className="d-inline-block align-center"             
+              />
+              {'DinaSound'}
+
             
                     
           </Navbar.Brand>
@@ -41,7 +49,8 @@ function BrandExample() {
           <Nav variant="light" >       
             <Link className='nav-link' to='/'>Catalogo</Link>
             <Link className='nav-link' to='/Nosotros'>Nosotros</Link>
-            <Link className='nav-link' to='/Contacto'>Contacto</Link>         
+            <Link className='nav-link' to='/Contacto'>Contacto</Link> 
+            <button  onClick={logout} className='btn btn-outline-danger'>Logout</button>        
           </Nav>      
           
         </Container>
@@ -50,10 +59,15 @@ function BrandExample() {
         <Container className="justify-content-center" >
              
           <Nav  >
-            <Nav.Link className='cat-link'>Categorias:</Nav.Link>   
+             
             <Link className='nav-link'   to='/productos/parlantes'  >Parlantes</Link>
             <Link className='nav-link' to='/productos/potencias' >Potencias</Link>
-            <Link className='nav-link' to='/productos/estereo' >Estereo</Link>         
+            <Link className='nav-link' to='/productos/estereo' >Estereo</Link>
+            <Nav.Link className='header-user'>
+            <p>Bienvenido: {user.user} </p> 
+          
+            </Nav.Link>     
+                  
           </Nav>
           
         </Container>

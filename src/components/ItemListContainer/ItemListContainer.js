@@ -1,10 +1,11 @@
 import { useEffect, useState } from "react"
 /* import { pedirDatos } from "../../helpers/pedirDatos"  */ 
 import ItemList from "../ItemList/itemList"
-import { useParams } from "react-router-dom"
+import { Navigate, useParams } from "react-router-dom"
 import { collection,  getDocs, query, where } from "firebase/firestore"
 import { db } from "../../FireBase/config"
 import Loader from "../Loader/Loader"
+import { useLoginContext } from "../Context/LoginContext"
  
   
    const ItemListContainer = () => {
@@ -39,6 +40,7 @@ import Loader from "../Loader/Loader"
       }, [categoryId])
 
        /*  pedirDatos()
+
             .then( (res) => {
                 if (!categoryId) {
                     setProductos(res)
@@ -54,20 +56,24 @@ import Loader from "../Loader/Loader"
             })
     }, [categoryId]) */
 
+      const {user} = useLoginContext()
+
+
       return (
-        <div >
 
-          {
-            loading            
-            ?  <Loader/>
-            : <ItemList productos={productos}/>
-          }
+          <div >
+
+            {
+              loading            
+              ?  <Loader/>
+              : <ItemList productos={productos}/>
+            }
 
 
-        </div>
-
-      );
-  }
+          </div>
+            
+    );
+}
   
   export default ItemListContainer;
   
