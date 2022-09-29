@@ -1,38 +1,22 @@
-import { useState } from "react"
+
 import { Navigate } from "react-router-dom"
 import { useCartContext } from "../Context/CartContext"
-import {addDoc, collection, doc, updateDoc, getDoc} from 'firebase/firestore'
+import { addDoc, collection,  getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../FireBase/config"
-
-
+import { useForm } from "../../hooks/useForm"
 
 const CheckOut = () => {
     
     const {cart, totalCarrito, finalizarCompra} = useCartContext()
 
-
-    const [values, setValues ] = useState({
+    const {values, handleInputChange } = useForm({
         nombre: '',
         email: '',
         direccion: '',
+
     })
 
-    const handleInputChange = (e) => {
-
-        setValues({
-            ...values,
-            [e.target.name]: e.target.value
-
-        })
-
-    }
-
-    /* const handleNombre = (e) =>{
-        setNombre(e.target.value)
-
-    } */
-
-    const handleSubmit = (e) =>{
+    const handleSubmit = async (e) =>{
         e.preventDefault()
 
         const orden = {
@@ -59,40 +43,50 @@ const CheckOut = () => {
             return 
         }
 
-        cart.forEach((item) => {
-            const docRef = doc(db, 'productos', item.id)
-
-            getDoc (docRef)
-                .then((doc) =>{
-
-                    if(doc.data().cantidad >= item.cantidad) {
-
-                        updateDoc(docRef, {
-                            cantidad:  doc.data().cantidad - item.cantidad
-                        })
-                    } else {
-                        alert ("No hay stock suficiente.")
-                    }
-
-                    
-                })
-
-        });
-
+        const batch = writeBatch(db)
         const ordenesRef = collection(db, 'ordenes')
-        addDoc(ordenesRef, orden)
-            .then((doc) => {
-                console.log(doc.id)
-                finalizarCompra(doc.id)
-            })
+        const productosRef = collection(db, 'productos')
 
+        const q = query( productosRef, where(documentId(), 'in', cart.map (item => item.id ) ))
+        
+        const productos = await getDocs(q) 
 
+        const outOfStock = []
+
+        productos.docs.forEach((doc)=> {
+            const itemInCart = cart.find(item => item.id === doc.id)
+
+            if (doc.data().cantidad >= itemInCart.cantidad ) {
+                batch.update(doc.ref, {
+                    cantidad: doc.data().cantidad  - itemInCart.cantidad
+                } ) 
+            } else {
+                outOfStock.push(itemInCart)
+            }
+
+        })
+
+        if (outOfStock.length === 0){
+            batch.commit()
+                .then((doc) => {
+
+                    addDoc(ordenesRef, orden)
+                      .then((doc) => {
+                          console.log(doc.id)
+                          finalizarCompra(doc.id)
+                      }) 
+
+                } )
+        } else {
+             alert( `Sin stock de: ${outOfStock[0].nombre} ${outOfStock[0].modelo}` )
+
+             console.log(outOfStock)
+        }
     }
 
     if(cart.length === 0 ) {
         return <Navigate to="/"/>
     }
-
 
     return (       
         <div className="container my-5">
@@ -110,7 +104,6 @@ const CheckOut = () => {
                    className="form-control my-3"
                    placeholder="Tu nombre"
                 />
-
 
                 <input
                    name="email"
@@ -131,11 +124,7 @@ const CheckOut = () => {
                 />
 
                 <button type="submit" className="btn btn-primary">Enviar</button>
-
-
             </form>
-
-
         </div>   
     )
 }

@@ -1,4 +1,5 @@
-import { useContext, useState } from "react"
+import { useContext } from "react"
+import { useForm } from "../../hooks/useForm"
 import { LoginContext } from "../Context/LoginContext"
 
 
@@ -8,28 +9,18 @@ const LoginSection = () => {
 
     const{login, user} = useContext (LoginContext)
     console.log(user)
+    const {values, handleInputChange } = useForm ({
+        email: '',
+        pass: '',
+    })
 
-    const [email, setEmail] = useState('')
-    const [pass, setPass] = useState('')
-
-    const handleEmailLog = (e) => {
-        
-        setEmail(e.target.value)
-
-    }
-    const handlePassChange = (e) => {
-        
-        setPass(e.target.value)
-
-    }
+    
 
 
     const handleSubmit = (e) => {
         e.preventDefault()
 
-        login({
-            email, pass
-        })
+        login(values)
         
     }
 
@@ -37,18 +28,20 @@ const LoginSection = () => {
         <div style={{backgroundcolor: 'lightgreen'}}>
             <form onSubmit={handleSubmit}   className="container my-4">
                 <input
+                    name="email"
                     type={'email'}
                     className='form-control'
-                    value={email} 
-                    onChange={handleEmailLog}
+                    value={values.email} 
+                    onChange={handleInputChange}
                 />
 
 
                 <input
+                    name="pass"
                     type={'pasword'}
                     className='form-control'
-                    value={pass}
-                    onChange={handlePassChange}
+                    value={values.pass}
+                    onChange={handleInputChange}
                 />
                 <button className="btn btn-primary" type="submit" > Ingresar. </button>
 
