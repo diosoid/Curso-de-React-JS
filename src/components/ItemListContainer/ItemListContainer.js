@@ -7,7 +7,8 @@ import { useProductos } from "../../hooks/useProductos"
 
     const {productos, loading } = useProductos()
       
-      const {} = useLoginContext()
+      const {user} = useLoginContext()
+      console.log(user)
       
       return (
           <div >

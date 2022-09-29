@@ -2,7 +2,7 @@ import {  useCartContext } from "../Context/CartContext"
 import { BsFillTrashFill } from "react-icons/bs";
 import { Link } from "react-router-dom";
 
-/* import { useDarkMode } from "../Context/DarkModeContext"; */
+
 
 
 const Cart = ( ) => {
@@ -18,8 +18,7 @@ const Cart = ( ) => {
         )
     }
 
-    /* const {darkMode} = useDarkMode()
-    console.log(darkMode) */
+    
 
     return (
 
