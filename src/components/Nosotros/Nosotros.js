@@ -1,17 +1,11 @@
 
-
-
-
 const Nosotros = () => {
 
     const handleClick = () => {
 
         console.log("Click!")
     }
-    
-    
-
-    
+       
     return (
 
         <div className="conainer my-5">

@@ -19,7 +19,7 @@ const Contador = ( {max, counter, setCounter, handleAgregar} ) => {
         }               
     }
 
-    //useEffect(() => {console.log("Contador montado")}, [])
+    
 
     return (
       <div className="container my-5">

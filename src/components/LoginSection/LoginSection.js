@@ -7,7 +7,7 @@ import { Box } from "@mui/system"
 
 const LoginSection = () => {
 
-    /* const {userRegister} = useCartContext() */
+    
 
     const{login, user} = useContext (LoginContext)
     /* console.log(user) */

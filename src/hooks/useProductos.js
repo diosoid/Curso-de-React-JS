@@ -3,19 +3,13 @@ import { useParams } from "react-router-dom"
 import { collection, getDocs, query, where } from "firebase/firestore"
 import { db } from "../FireBase/config"
 
-
-
-
 export const useProductos = () => {
-
-    
 
     const [productos, setProductos] = useState([])
     const [loading, setLoading] = useState(true)
 
     const { categoryId } = useParams()
     
-
     useEffect(() => {
         setLoading(true)
 
@@ -24,11 +18,10 @@ export const useProductos = () => {
                       ?query(productosRef, where('category', '==', categoryId) )
                       : productosRef
       
-
           getDocs(q)
           .then((resp) =>{
             const productosDB = resp.docs.map((doc)=> ({id: doc.id, ...doc.data()}))
-            console.log(productosDB)
+            /* console.log(productosDB) */
             setProductos(productosDB)
           })
           .finally(()=>{

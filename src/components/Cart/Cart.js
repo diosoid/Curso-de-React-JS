@@ -1,7 +1,7 @@
 import {  useCartContext } from "../Context/CartContext"
-import { BsFillTrashFill } from "react-icons/bs";
+/* import { BsFillTrashFill } from "react-icons/bs"; */
 import { Link } from "react-router-dom";
-import {Container, Button, Grid, Paper, Typography, TextField } from '@mui/material'
+import {Container, Button, Grid, Paper } from '@mui/material'
 import { Box } from "@mui/system"
 import DeleteSweepIcon from '@mui/icons-material/DeleteSweep';
 

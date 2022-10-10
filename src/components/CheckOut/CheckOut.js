@@ -77,15 +77,14 @@ const CheckOut = () => {
 
                     addDoc(ordenesRef, orden)
                       .then((doc) => {
-                          console.log(doc.id)
+                          /* console.log(doc.id) */
                           finalizarCompra(doc.id)
                       }) 
-
                 } )
         } else {
              alert( `Sin stock de: ${outOfStock[0].nombre} ${outOfStock[0].modelo}` )
 
-             console.log(outOfStock)
+             /* console.log(outOfStock) */
         }
     }
 

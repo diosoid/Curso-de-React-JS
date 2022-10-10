@@ -5,7 +5,7 @@ import './ItemDetail.css'
 import { Container } from "@mui/system";
 import Contador from '../Contador/Contador';
 import {  useContext, useState  } from "react"
-import Select from '../Select/Select';
+
 import { CartContext } from '../Context/CartContext';
 
 
@@ -17,7 +17,7 @@ const ItemDetail = ({item}) => {
     const { addToCart, isInCart } = useContext(CartContext)
     
     const [cantidad, setCantidad] = useState(1)
-    const [color, setColor] =  useState(item.options[0].value)
+    const [color, /* setColor */] =  useState(item.options[0].value)
 
     const handleAgregar = () => {
         const itemToCart = {
@@ -31,12 +31,6 @@ const ItemDetail = ({item}) => {
         
 
         addToCart(itemToCart)
-
-        /* console.log({
-            ...item,
-            cantidad
-        })
-        console.log(itemToCart) */
 
     }
     
