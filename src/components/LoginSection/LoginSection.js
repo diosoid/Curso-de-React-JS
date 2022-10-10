@@ -10,7 +10,7 @@ const LoginSection = () => {
     
 
     const{login, user} = useContext (LoginContext)
-    /* console.log(user) */
+     console.log(user) 
     const {values, handleInputChange } = useForm ({
         email: '',
         pass: '',
