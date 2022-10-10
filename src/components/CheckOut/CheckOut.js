@@ -4,6 +4,9 @@ import { useCartContext } from "../Context/CartContext"
 import { addDoc, collection,  getDocs, writeBatch, query, where, documentId } from 'firebase/firestore'
 import { db } from "../../FireBase/config"
 import { useForm } from "../../hooks/useForm"
+import {Container, Button, Grid, Paper, Typography, TextField } from '@mui/material'
+import { Box } from "@mui/system"
+
 
 const CheckOut = () => {
     
@@ -11,8 +14,10 @@ const CheckOut = () => {
 
     const {values, handleInputChange } = useForm({
         nombre: '',
+        apellido:'',
         email: '',
-        direccion: '',
+        localidad:'',
+        direccion: ''
 
     })
 
@@ -29,12 +34,12 @@ const CheckOut = () => {
 
         
         if(values.nombre.length < 2) {
-            alert("Nombre incorrecto.")
+            alert("Por favor ingrese un nombre valido.")
             return
         } 
         
         if(values.email.length < 2) {
-            alert("Email incorrecto.")
+            alert("El correo es incorrecto.")
            return 
         }
         
@@ -89,7 +94,100 @@ const CheckOut = () => {
     }
 
     return (       
-        <div className="container my-5">
+
+        <Container maxWidth="xl">
+            <Grid
+             container
+             direction="column"
+             alignItems="center"
+             justifyContent="center"
+             sx={{ minHeight: "100vh" }}
+             >
+                <Grid item>
+
+                    <Paper sx={{ padding: "1.2em",  borderRadius: "0.5em"}}  >
+
+                        <Typography variant="h4" sx={{mt:1, mb: 1}}> Check Out.</Typography>
+
+                        <Box onSubmit={handleSubmit} component="form">
+                            
+                            <TextField
+                              name="nombre"                                              
+                              margin="normal"
+                              type={'text'}                                
+                              fullWidth
+                              label="Nombre"
+                              sx={{mt:2, mb: 1.5}}
+                              required
+                              value={values.nombre}                              
+                              onChange={handleInputChange}                                                                           
+                              placeholder="Nombre"
+                              />
+                            <TextField
+                              name="apellido"                                              
+                              margin="normal"
+                              type={'text'}                                
+                              fullWidth
+                              label="Apellido"
+                              sx={{mt:2, mb: 1.5}}
+                              required
+                              value={values.apellido}                              
+                              onChange={handleInputChange}                                                                           
+                              placeholder="Apellido"
+                              />
+                            <TextField
+                              name="email"                                              
+                              margin="normal"
+                              type={'email'}                                
+                              fullWidth
+                              label="Email"
+                              sx={{mt:2, mb: 1.5}}
+                              required
+                              value={values.email}                              
+                              onChange={handleInputChange}                                                                           
+                              placeholder="Email"
+                              />
+                            <TextField
+                              name="localidad"                                              
+                              margin="normal"
+                              type={'text'}                                
+                              fullWidth
+                              label="Localidad"
+                              sx={{mt:2, mb: 1.5}}
+                              required
+                              value={values.localidad}                              
+                              onChange={handleInputChange}                                                                           
+                              placeholder="Localidad"
+                              />
+                            <TextField
+                              name="direccion"                                              
+                              margin="normal"
+                              type={'text'}                                
+                              fullWidth
+                              label="Direccion"
+                              sx={{mt:2, mb: 1.5}}
+                              required
+                              value={values.direccion}                              
+                              onChange={handleInputChange}                                                                           
+                              placeholder="Direccion"
+                              />
+
+                             
+
+                            <Button type="submit"
+                            fullWidth variant="contained"
+                            sx={{mt:1.5, mb: 3}}                    
+                            >Enviar. </Button>
+                        </Box>
+                    </Paper>
+                </Grid>
+           
+            </Grid>
+        </Container>
+
+
+
+        /* <div className="container my-5">
 
             <h2> CheckOut </h2>
             <hr/>
@@ -104,11 +202,27 @@ const CheckOut = () => {
                    className="form-control my-3"
                    placeholder="Tu nombre"
                 />
+                <input
+                   name="apellido"                
+                   onChange={handleInputChange}                  
+                   value={values.apellido}
+                   type={'text'}
+                   className="form-control my-3"
+                   placeholder="Tu nombre"
+                />
 
                 <input
                    name="email"
                    onChange={handleInputChange}
                    value={values.email}
+                   type={'email'}
+                   className="form-control my-3"
+                   placeholder="Email"
+                 />
+                <input
+                   name="localidad"
+                   onChange={handleInputChange}
+                   value={values.localidad}
                    type={'email'}
                    className="form-control my-3"
                    placeholder="Email"
@@ -125,7 +239,7 @@ const CheckOut = () => {
 
                 <button type="submit" className="btn btn-primary">Enviar</button>
             </form>
-        </div>   
+        </div>  */
     )
 }
 

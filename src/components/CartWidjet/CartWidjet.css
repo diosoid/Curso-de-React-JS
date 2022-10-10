@@ -3,10 +3,21 @@
     visibility: hidden;
     opacity: 0;
     transition: all .3s ease-in-out;
+    text-decoration: none;
+    color: whitesmoke;
 }
 .widget-visible {
    
     visibility: visible;
     opacity: 1;
     transition: all .3s ease-in-out;
+    text-decoration: none;
+    color: rgba(255, 255, 255, 0.55);
+    
 }
+
+a:hover {
+    color: whitesmoke;
+}
+
+

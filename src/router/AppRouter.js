@@ -11,9 +11,11 @@ const AppRouter = () => {
 
     const {user} = useLoginContext()
 
-    return (       
+    return (     
+
         <BrowserRouter>
-            {
+                                                     
+           {
             user.logged
                     ? <PrivateRoutes/>                   
                     : <PublicRoutes/>

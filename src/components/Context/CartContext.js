@@ -1,5 +1,6 @@
 import {  createContext, useContext, useEffect, useState } from "react";
 import Swal from 'sweetalert2'
+import { Navigate } from 'react-router-dom'
 
 export const CartContext = createContext()
 
@@ -53,6 +54,23 @@ export const CartProvider = ({children}) => {
           })     
     }
 
+    const userRegister = () => {
+
+        Swal.fire({
+            title: 'Se ha registrado con Exito',       
+            icon: 'success',
+            
+            confirmButtonColor: '#3085d6',
+           
+            confirmButtonText: 'Si!'
+          }).then((result) => {
+            if (result.isConfirmed) {         
+                <Navigate to="/" />
+                        
+            }
+          })     
+    }
+
     const finalizarCompra = (id) => {
 
         Swal.fire({
@@ -83,7 +101,8 @@ export const CartProvider = ({children}) => {
             totalCarrito,
             vaciarCarrito,
             eliminarItem,
-            finalizarCompra
+            finalizarCompra,
+            userRegister
           }}>
 
             {children}

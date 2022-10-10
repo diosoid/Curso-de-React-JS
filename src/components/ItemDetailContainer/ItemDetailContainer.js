@@ -1,5 +1,4 @@
 import { useEffect, useState } from "react"
-/* import { pedirDatos } from "../../helpers/pedirDatos" */
 import { useParams } from 'react-router-dom'
 import ItemDetail from "../ItemDetail/ItemDetail"
 import {doc, getDoc } from "firebase/firestore"
@@ -12,9 +11,6 @@ const ItemDetailContainer = () => {
     const [loading, setLoading] = useState(true)
 
     const {itemId} = useParams()
-
-    //console.log(itemId)
-    //console.log(item)
 
     useEffect(() => {
         setLoading(true)
@@ -30,19 +26,6 @@ const ItemDetailContainer = () => {
                 
         }, [itemId])
 
-
-        /* pedirDatos()
-            .then((res) => {
-                setItem( res.find((prod) => prod.id === Number(itemId)) )
-            })
-            .catch(err => console.log(err))
-            .finally(() => {
-                setLoading(false)
-            }) */
-        // setear el estado con un único producto
-
-    
-
     return (
         <div>
             {
@@ -50,8 +33,6 @@ const ItemDetailContainer = () => {
                 ? <Loader/>
                 : <ItemDetail item={item} />
             }
-            
-
         </div>
     )
 }

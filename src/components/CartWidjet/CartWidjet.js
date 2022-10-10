@@ -13,7 +13,7 @@ const CartWidjet = ( ) => {
 
     return (
       <Link to="/cart" className={`widget ${cart.length > 0 ? 'widget-visible' : ''}` } >
-        <ShoppingCartIcon/>
+        <ShoppingCartIcon className='widget-visible '/>
         <span>{cartContent()}</span>
       
       </Link>

@@ -60,7 +60,7 @@ const ItemDetail = ({item}) => {
 
       <p>{item.descripcion}</p>
 
-      <Select options={item.options} onSelect={setColor}  />
+      {/* <Select className={`widget ${item.id  ? ''  : 'widget-visible btn btn-primary'}` }  options={item.options} onSelect={setColor}  /> */}
 
       {
         isInCart(item.id)
@@ -74,21 +74,11 @@ const ItemDetail = ({item}) => {
         
       }
 
-      {/* <Link to= {`/item/${item.id}`} className="btn btn-primary my-2" variant="primary">Agregar al carrito.</Link> */}
       </Card.Title> 
       </Card.Body>
     </Card>
     </Container>
-
-
-
-        /* <div className="container my-5">
-            <img src={item.img} alt={item.nombre}/>
-            <h3>{item.nombre}</h3>
-            <p>{item.atributos}</p>
-            <p>{item.category}</p>
-            <h4>Precio: ${item.valor}</h4>
-        </div> */
+      
     )
 }
 
