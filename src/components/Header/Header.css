@@ -8,7 +8,13 @@
         width: 80px;
     }
 
-    /* .widjet {
+.link {
+        text-decoration: none;
+    }
+
+
+
+    .widjet {
         font-size: 25px;
         visibility: hidden;
         opacity: 0;
@@ -25,4 +31,4 @@
         width: 10px;
         
         
-    } */
+    } 

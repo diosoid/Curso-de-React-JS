@@ -10,7 +10,7 @@ const LoginSection = () => {
     
 
     const{login, user} = useContext (LoginContext)
-     console.log(user) 
+     /* console.log(user) */ 
     const {values, handleInputChange } = useForm ({
         email: '',
         pass: '',
@@ -29,7 +29,7 @@ const LoginSection = () => {
              direction="column"
              alignItems="center"
              justifyContent="center"
-             sx={{ minHeight: "100vh" }}
+             sx={{ minHeight: "60vh" }}
              >
                 <Grid item>
 
@@ -76,17 +76,14 @@ const LoginSection = () => {
                 
 
         /* <div style={{backgroundcolor: 'lightgreen'}}>
-            <form onSubmit={handleSubmit}   className="container my-4">
-                             
+            <form onSubmit={handleSubmit}   className="container my-4">                            
                 <input
                     name="email"
                     type={'email'}
                     className='form-control'
                     value={values.email} 
-                    onChange={handleInputChange}
-                    
+                    onChange={handleInputChange}                   
                 />
-
                 <input
                     name="pass"
                     type={'pasword'}
@@ -94,9 +91,7 @@ const LoginSection = () => {
                     value={values.pass}
                     onChange={handleInputChange}
                 />
-                <button className="btn btn-primary" type="submit" > Ingresar. </button>
-
-                
+                <button className="btn btn-primary" type="submit" > Ingresar. </button>               
             </form>
         </div> */
     )
