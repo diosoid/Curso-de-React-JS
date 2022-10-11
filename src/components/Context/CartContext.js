@@ -4,30 +4,24 @@ import { Navigate } from 'react-router-dom'
 
 export const CartContext = createContext()
 
- const init = JSON.parse(localStorage.getItem('carrito')) || []
+const init = JSON.parse(localStorage.getItem('carrito')) || []
 
 export const CartProvider = ({children}) => {
 
     const [cart, setCart] = useState(init)
 
-    const addToCart = (item) => {
-        
+    const addToCart = (item) => {        
         setCart([...cart, item])
-        
-
     }
 
     const eliminarItem = (id) => {
-        setCart(cart.filter((item) => item.id !== id ))
-        
-
+        setCart(cart.filter((item) => item.id !== id ))       
     }
 
     const isInCart = (id) => {
     return cart.some((item) => item.id === id)
     }
   
-
     const cartContent = () => {
     return cart.reduce((acc, item) => acc + item.cantidad, 0 )
     }
@@ -47,8 +41,7 @@ export const CartProvider = ({children}) => {
             confirmButtonText: 'Si!'
           }).then((result) => {
             if (result.isConfirmed) {         
-                setCart([])
-                        
+                setCart([])                       
             }
           })     
     }

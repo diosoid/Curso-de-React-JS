@@ -3,24 +3,27 @@ import { useForm } from "../../hooks/useForm"
 import { LoginContext } from "../Context/LoginContext"
 import {Container, Button, Grid, Paper, Typography, TextField } from '@mui/material'
 import { Box } from "@mui/system"
-/* import { useCartContext } from "../Context/CartContext" */
+ import { useCartContext } from "../Context/CartContext"
 
 const LoginSection = () => {
 
     
-
-    const{login, user} = useContext (LoginContext)
-     /* console.log(user) */ 
+    const {userRegister} = useCartContext()
+    const {login } = useContext (LoginContext)
     const {values, handleInputChange } = useForm ({
         email: '',
         pass: '',
     })
-
+    
     const handleSubmit = (e) => {
         e.preventDefault()
         login(values)     
     }
 
+    /* console.log(user)  */
+    
+     
+    
     return(
 
         <Container maxWidth="xl">
@@ -62,16 +65,18 @@ const LoginSection = () => {
                               onChange={handleInputChange}                             
                               />
 
-                            <Button /* onClick={userRegister} */ type="submit"
+                            <Button  onClick={userRegister} type="submit"
                             fullWidth variant="contained"
                             sx={{mt:1.5, mb: 3}}                    
                             >Iniciar sesion.</Button>
+                            
                         </Box>
                     </Paper>
                 </Grid>
            
             </Grid>
         </Container>
+        
 
                 
 
@@ -95,6 +100,9 @@ const LoginSection = () => {
             </form>
         </div> */
     )
+
+    
 }
+
 
 export default LoginSection

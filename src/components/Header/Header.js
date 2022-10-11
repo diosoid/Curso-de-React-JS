@@ -22,7 +22,7 @@ function BrandExample() {
       <Navbar bg="dark" variant="dark" >
         <Container className="justify-content-center" >
 
-            <Link class='nav-link text-light bg-dark'   to='/Nosotros'>Nosotros</Link>
+            <Link className='nav-link text-light bg-dark'   to='/Nosotros'>Nosotros</Link>
           <Navbar.Brand >
               <img
               alt=""
@@ -33,7 +33,7 @@ function BrandExample() {
               />
               {'DinaSound'}                
           </Navbar.Brand>
-            <Link class='nav-link text-light bg-dark' to='/Contacto'>Contacto</Link> 
+            <Link className='nav-link text-light bg-dark' to='/Contacto'>Contacto</Link> 
                    
         </Container>
       </Navbar>
