@@ -38,7 +38,7 @@ function BrandExample() {
         </Container>
       </Navbar>
 
-      <Navbar bg="success" variant="dark"  className={`widget ${cart.length && user.logged > 0 ? 'widget-visible' : ''}` }>
+      <Navbar bg="success" variant="dark"  className={`widget ${cart.length > 0 && user.logged  ? 'widget-visible' : ''}` }>
         <Container className="justify-content-center"  >
 
           <CartWidjet />    
@@ -48,7 +48,7 @@ function BrandExample() {
           </Nav>                
         </Container>
       </Navbar>
-      <Navbar bg="success" variant="dark"  className={`widget ${cart.length && user.logged > 0 ? 'widget-visible' : ''}` }>
+      <Navbar bg="success" variant="dark"  className={`widget ${cart.length > 0 && user.logged  ? 'widget-visible' : ''}` }>
         <Container className="justify-content-center" >             
           <Nav  >
              
