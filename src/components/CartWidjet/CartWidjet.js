@@ -14,7 +14,7 @@ const CartWidjet = ( ) => {
 
 
     return (
-      <Link to="/cart" className={`widget ${cart.length && user.logged > 0 ? 'widget-visible' : ''}` } >
+      <Link to="/cart" className={`widget ${cart.length > 0 && user.logged ? 'widget-visible' : ''}` } >
         <ShoppingCartIcon className='widget-visible '/>
         <span>{cartContent()}</span>
       

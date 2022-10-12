@@ -6,8 +6,8 @@ import Nav from 'react-bootstrap/Nav';
 import {Link} from 'react-router-dom'
 import CartWidjet from '../CartWidjet/CartWidjet';
 import { useLoginContext } from '../Context/LoginContext';
-import { CartContext } from '../Context/CartContext';
-import { useContext } from 'react';
+/* import { CartContext } from '../Context/CartContext';
+import { useContext } from 'react'; */
 
 
 
@@ -15,7 +15,7 @@ import { useContext } from 'react';
 function BrandExample() {
 
   const {user, logout } = useLoginContext()
-  const {cart} = useContext(CartContext)
+  /* const {cart} = useContext(CartContext) */
 
   return (
     <>        
@@ -38,7 +38,7 @@ function BrandExample() {
         </Container>
       </Navbar>
 
-      <Navbar bg="success" variant="dark"  className={`widget ${cart.length > 0 && user.logged  ? 'widget-visible' : ''}` }>
+      <Navbar bg="success" variant="dark"  className={`widget ${ user.logged  ? 'widget-visible' : ''}` }>
         <Container className="justify-content-center"  >
 
           <CartWidjet />    
@@ -48,7 +48,8 @@ function BrandExample() {
           </Nav>                
         </Container>
       </Navbar>
-      <Navbar bg="success" variant="dark"  className={`widget ${cart.length > 0 && user.logged  ? 'widget-visible' : ''}` }>
+      
+      <Navbar bg="success" variant="dark"  className={`widget ${ user.logged  ? 'widget-visible' : ''}` }>
         <Container className="justify-content-center" >             
           <Nav  >
              
@@ -60,6 +61,7 @@ function BrandExample() {
           </Nav>          
         </Container>
       </Navbar>
+
     </>
   );
 }

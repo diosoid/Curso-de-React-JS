@@ -14,7 +14,7 @@
 
 
 
-    .widjet {
+    .head {
         font-size: 25px;
         visibility: hidden;
         opacity: 0;
@@ -22,7 +22,7 @@
         text-decoration: none;
         
     }
-    .widjet-visible {
+    .head-visible {
        
         visibility: visible;
         opacity: 1;
